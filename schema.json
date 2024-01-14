@@ -1,0 +1,90 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "FastAPI Example Application",
+    "description": "An example API demonstrating basic FastAPI features.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://seth-rose.replit.app",
+      "description": "Replit server (no API key required)"
+    }
+  ],
+  "paths": {
+    "/hello/{name}": {
+      "get": {
+        "summary": "Greeting Endpoint",
+        "operationId": "greet",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "description": "Name of the person to greet",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with greeting message",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Hello, John!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/info/{item_id}": {
+      "get": {
+        "summary": "Fetch Info Endpoint",
+        "operationId": "fetch_info",
+        "parameters": [
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the item to fetch information for",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with item information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "item_id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "info": {
+                      "type": "string",
+                      "example": "Details about item 1"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
